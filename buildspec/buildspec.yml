@@ -58,7 +58,6 @@ phases:
           echo "Uploading vulnerabilities to AWS SecurityHub"
           aws securityhub batch-import-findings --findings file://securityhub/report.asff --region=$AWS_DEFAULT_REGION
         fi
-      - bash -c "if [ \"$CODEBUILD_BUILD_SUCCEEDING\" == \"0\" ]; then exit 1; fi"
 cache:
   paths:
     - '/root/.m2/**/*'
